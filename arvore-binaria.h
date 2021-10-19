@@ -1,6 +1,6 @@
 #include "estruturas.h"
 
-tNo *inicia(int valor);
+tNo *inicia(char valor);
 int checaSinal(char c);
 tNo *montaarvore(const char *str, int *i);
 int contaNos(tNo *no);

@@ -32,10 +32,6 @@ void carregarExpressoes(char *nomeArquivo){
     nResultados = 0;
     while ((read = getline(&line, &len, fp)) != -1  && (nResultados < MAX_RESULTADOS)) {
         tratarExpressoes(line); 
-        // puts(expressoes[nResultados]);
-        // printf("'%s'\n", expressoes[nResultados]);
-        // puts(resultados[nResultados]);
-        // printf("'%s'\n", resultados[nResultados]);
         nResultados++;
     }
     printf("leitura das expressões completa, %d expressões lidas\n",nResultados);
@@ -50,7 +46,6 @@ void tratarExpressoes(char *line){
     char delim[] = "=";
     strcpy(expressoes[nResultados], strtok(line, delim)); 
     strcpy(resultados[nResultados], strtok(NULL, delim));  
-    
 }
 /* -------------------------------------------------------------------------- */
 unsigned int testaResultado(int resultado){  

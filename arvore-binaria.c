@@ -1,15 +1,52 @@
 #include "estruturas.h"
 #include "arvore-binaria.h"
+
 #include "biblioteca.h"
 #include <stdio.h>
 #include <string.h>
 
 /*Função para inicialização do nó, com alocação de memória e atribuição de valores para os componentes do nó.*/
-tNo *inicia(int valor)
+// tNo *inicia(int valor)
+// {
+//     printf("VALOR: %d\n", valor); 
+//     tNo *n = (tNo *)malloc(sizeof(tNo));
+//     n->valor = valor;
+//     n->dir = NULL;
+//     n->esq = NULL;
+//     return n;
+// }
+
+/*Função para inicialização do nó, com alocação de memória e atribuição de valores 
+  para os componentes do nó.*/
+tNo *inicia(char valor)
 {
-    printf("VALOR: %d\n", valor); 
     tNo *n = (tNo *)malloc(sizeof(tNo));
-    n->valor = valor;
+    if (checaSinal(valor)){
+        if (valor == '+'){
+            n->valor = MAIS;
+        }
+        else if(valor == '-'){
+            n->valor = MENOS;
+        }
+        else if(valor == '/'){
+            n->valor = DIVISAO;
+        }
+        else if(valor == '*'){
+            n->valor = VEZES;
+        } 
+    }
+    else {
+        n->valor = valor - '0';
+    }
+    n->dir = NULL;
+    n->esq = NULL;
+    return n;
+}
+
+tNo *iniciaMaior(const char *str)
+{ 
+    tNo *n = (tNo *)malloc(sizeof(tNo));
+    n->valor = atoi(str);    
     n->dir = NULL;
     n->esq = NULL;
     return n;
@@ -29,17 +66,13 @@ tNo *montaarvore(const char *str, int *i)
         }
         else {
             int k = 0;
-            // int j = *i;
             char novoValor[50]; 
             for (int j = (*i);(str[j] >= 48 && str[j] <= 57);j++){
                 k++;  
             } 
             strncpy(novoValor, &str[*i], k);
-            // printf("antes : %c", str[*i]); 
             (*i) +=k;   
-            // printf("depois : %c", str[*i]); 
-            printf("NOVO VALOR : '%s' \n", novoValor); 
-            no = inicia(atoi(novoValor)); 
+            no = iniciaMaior(novoValor); 
         }
         no->esq = montaarvore(str, i);
         no->dir = montaarvore(str, i);
