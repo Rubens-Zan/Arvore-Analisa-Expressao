@@ -3,5 +3,7 @@
 ## Autor: Rubens Zandomenighi Laszlo - GRR20206147
 
 # Compilação 
-Para efetuar a compilação, basta digitar make all.
+## Linux
+Para efetuar a compilação, basta digitar make all, para excluir todos os arquivos executáveis e temporários digite make purge.
+
  
