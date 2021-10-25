@@ -1,23 +1,16 @@
+/* Includes */
 #include "estruturas.h"
 #include "arvore-binaria.h"
-
-#include "biblioteca.h"
 #include <stdio.h>
 #include <string.h>
 
-/*Função para inicialização do nó, com alocação de memória e atribuição de valores para os componentes do nó.*/
-// tNo *inicia(int valor)
-// {
-//     printf("VALOR: %d\n", valor); 
-//     tNo *n = (tNo *)malloc(sizeof(tNo));
-//     n->valor = valor;
-//     n->dir = NULL;
-//     n->esq = NULL;
-//     return n;
-// }
-
+/* Funções */
 /*Função para inicialização do nó, com alocação de memória e atribuição de valores 
   para os componentes do nó.*/
+int checaSinal(char c){
+    return (c == '+' || c == '-' || c == '/' || c == '*' );
+};
+/* -------------------------------------------------------------------------- */
 tNo *inicia(char valor)
 {
     tNo *n = (tNo *)malloc(sizeof(tNo));
@@ -42,7 +35,7 @@ tNo *inicia(char valor)
     n->esq = NULL;
     return n;
 }
-
+/* -------------------------------------------------------------------------- */
 tNo *iniciaMaior(const char *str)
 { 
     tNo *n = (tNo *)malloc(sizeof(tNo));
@@ -80,7 +73,7 @@ tNo *montaarvore(const char *str, int *i)
     }
     return no;
 }
-
+/* -------------------------------------------------------------------------- */
 int contaNos(tNo *no)
 {
     if (no != NULL)
@@ -90,38 +83,37 @@ int contaNos(tNo *no)
     else
         return 0;
 }
-
+/* -------------------------------------------------------------------------- */
 void preordem(tNo *no)
 {
     if (no != NULL)
     {
-        printf("%c  ", no->valor);
+        printf("%d  ", no->valor);
         preordem(no->esq);
         preordem(no->dir);
     }
 }
-
+/* -------------------------------------------------------------------------- */
 void emordem(tNo *no)
 {
     if (no != NULL)
     {
         emordem(no->esq);
-        printf("%c  ", no->valor);
+        printf("%d  ", no->valor);
         emordem(no->dir);
     }
 }
-
+/* -------------------------------------------------------------------------- */
 void posordem(tNo *no)
 {
     if (no != NULL)
     {
         posordem(no->esq);
         posordem(no->dir);
-        printf("%c  ", no->valor);
+        printf("%d  ", no->valor);
     }
 }
-
-
+/* -------------------------------------------------------------------------- */
 int altura(tNo *p)
 {
     int he, hd;

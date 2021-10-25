@@ -1,19 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "estruturas.h"
-/**/
-int checaSinal(char c){
-    if (c == '+' || c == '-' || c == '/' || c == '*' )
-        return 1;
-    return 0; 
-};
-
+/* Funções */
+/* -------------------------------------------------------------------------- */
 int checaSinalDois(int v){
-    if (v == MAIS || v == MENOS || v == DIVISAO || v == VEZES )
-        return 1;
-    return 0;
+    // if (v == MAIS || v == MENOS || v == DIVISAO || v == VEZES )
+    //     return 1;
+    // return 0;
+    return (v == MAIS || v == MENOS || v == DIVISAO || v == VEZES );
 };
-
+/* -------------------------------------------------------------------------- */
 int analisaExpressao(tNo *no, int *result){
     int a , b;
     if (no != NULL)

@@ -17,10 +17,18 @@ Saída:
 A saída deverá ser as operações realizadas e o valor calculado da espressão aritmética.
 
 Para o exemplo acima, a saída será:
-
+(*(5)(+(4)(3))=35
 4 + 3
 7 * 5
 35
+
+(*(5)(+(4)(3)))=35
+(+(4)(3))=7
+(*(5)(+(/(6)(2))(3)))=30
+(-(/(*(5)(+(4)(3)))(7))(2))=3
+(/(*(5)(+(4)(3)))(7))=5
+(-(20)(+(4)(3)))=13
+
 
 Isto é, primeiro será calculada a operação de soma, e o resultado será utilizado na operação de
  multiplicação. A espressão de entrada sempre será correta, com o número exato de parênteses necessários. 

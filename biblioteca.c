@@ -5,7 +5,6 @@
 #include "biblioteca.h"
 
 #define MAX_RESULTADOS 100
-
 static char expressoes[MAX_RESULTADOS][50];     /* matriz com expressões testadas   */
 static char resultados[MAX_RESULTADOS][50];     /* matriz com resultados das expressões testadas   */
 static unsigned int nResultados = 0;            /* quantidade de resultados do arquivo */
@@ -14,9 +13,10 @@ static unsigned int resultadoAtual = -1;        /* qual o resultado atual */
 /* -------------------------------------------------------------------------- */
 unsigned int proximaExpressao(void) {
   resultadoAtual++;
-  if (resultadoAtual < nResultados)
-      return 1;
-  return 0;
+  return(resultadoAtual < nResultados);
+//   if (resultadoAtual < nResultados)
+//       return 1;
+//   return 0;
 }
 /* -------------------------------------------------------------------------- */
 void carregarExpressoes(char *nomeArquivo){
@@ -49,9 +49,7 @@ void tratarExpressoes(char *line){
 }
 /* -------------------------------------------------------------------------- */
 unsigned int testaResultado(int resultado){  
-	if (resultado == atoi(resultados[resultadoAtual]))
-        return 1;
-    return 0;
+    return (resultado == atoi(resultados[resultadoAtual]));
 }
 /* -------------------------------------------------------------------------- */
 char *expressaoAtual(void){
