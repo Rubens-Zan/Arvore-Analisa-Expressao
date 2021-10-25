@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "biblioteca.h"
 
 #define MAX_RESULTADOS 100
@@ -14,9 +13,6 @@ static unsigned int resultadoAtual = -1;        /* qual o resultado atual */
 unsigned int proximaExpressao(void) {
   resultadoAtual++;
   return(resultadoAtual < nResultados);
-//   if (resultadoAtual < nResultados)
-//       return 1;
-//   return 0;
 }
 /* -------------------------------------------------------------------------- */
 void carregarExpressoes(char *nomeArquivo){
@@ -39,10 +35,7 @@ void carregarExpressoes(char *nomeArquivo){
 }
 /* -------------------------------------------------------------------------- */
 void tratarExpressoes(char *line){
-    if (strcmp(&line[strlen(line)-1], " "))
-        line[strlen(line)-1] = '\0';
-    else
-        line[strlen(line)] = '\0';
+    line[strlen(line)-1] = '\0';
     char delim[] = "=";
     strcpy(expressoes[nResultados], strtok(line, delim)); 
     strcpy(resultados[nResultados], strtok(NULL, delim));  

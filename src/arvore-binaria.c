@@ -1,61 +1,46 @@
-/* Includes */
 #include "estruturas.h"
 #include "arvore-binaria.h"
 #include <stdio.h>
 #include <string.h>
 
-/* Funções */
-/*Função para inicialização do nó, com alocação de memória e atribuição de valores 
-  para os componentes do nó.*/
-int checaSinal(char c){
-    return (c == '+' || c == '-' || c == '/' || c == '*' );
+/* -------------------------------------------------------------------------- */
+int checaSinal(const char *c){
+    if ((*c) == '+')
+        return MAIS;
+    if ((*c) == '-')
+        return MENOS;
+    if ((*c) == '/')
+        return DIVISAO;
+    if ((*c) == '*')
+        return VEZES;
+    return 0; 
 };
 /* -------------------------------------------------------------------------- */
-tNo *inicia(char valor)
+tNo *inicia(const char *valor)
 {
     tNo *n = (tNo *)malloc(sizeof(tNo));
-    if (checaSinal(valor)){
-        if (valor == '+'){
-            n->valor = MAIS;
-        }
-        else if(valor == '-'){
-            n->valor = MENOS;
-        }
-        else if(valor == '/'){
-            n->valor = DIVISAO;
-        }
-        else if(valor == '*'){
-            n->valor = VEZES;
-        } 
+    int sinal = checaSinal(valor); 
+    if (sinal){
+        n->valor = sinal; 
     }
     else {
-        n->valor = valor - '0';
+        n->valor = atoi(valor);
     }
     n->dir = NULL;
     n->esq = NULL;
     return n;
 }
 /* -------------------------------------------------------------------------- */
-tNo *iniciaMaior(const char *str)
-{ 
-    tNo *n = (tNo *)malloc(sizeof(tNo));
-    n->valor = atoi(str);    
-    n->dir = NULL;
-    n->esq = NULL;
-    return n;
-}
-
 tNo *montaarvore(const char *str, int *i)
 {
     tNo *no = NULL;
     if (str[*i] == '(')
     {   
         (*i)++; 
-        // if next is not a number
+        // Se o proximo nao eh um numero
         if (!(str[*i+1] >= 48 && str[*i+1] <= 57)) {
-            no = inicia(str[*i]);
+            no = inicia(&str[*i]);
             (*i)++;
-        
         }
         else {
             int k = 0;
@@ -64,8 +49,8 @@ tNo *montaarvore(const char *str, int *i)
                 k++;  
             } 
             strncpy(novoValor, &str[*i], k);
-            (*i) +=k;   
-            no = iniciaMaior(novoValor); 
+            (*i) += k;   
+            no = inicia(novoValor); 
         }
         no->esq = montaarvore(str, i);
         no->dir = montaarvore(str, i);

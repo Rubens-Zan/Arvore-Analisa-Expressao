@@ -13,6 +13,5 @@ struct tNo
     int valor; 
     tNo *esq, *dir;
 };
-
 #endif
 

@@ -1,12 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "estruturas.h"
-/* Funções */
 /* -------------------------------------------------------------------------- */
-int checaSinalDois(int v){
-    // if (v == MAIS || v == MENOS || v == DIVISAO || v == VEZES )
-    //     return 1;
-    // return 0;
+int ehSinal(int v){
     return (v == MAIS || v == MENOS || v == DIVISAO || v == VEZES );
 };
 /* -------------------------------------------------------------------------- */
@@ -14,7 +10,7 @@ int analisaExpressao(tNo *no, int *result){
     int a , b;
     if (no != NULL)
     {
-        if (checaSinalDois(no->valor)){
+        if (ehSinal(no->valor)){
             a = (analisaExpressao(no->esq, result)); 
             b = (analisaExpressao(no->dir, result)); 
             if (no->valor == VEZES){
@@ -27,7 +23,6 @@ int analisaExpressao(tNo *no, int *result){
                 printf("%d / %d ", a, b);
                 (*result) =  a / b;
                 printf("= %d \n", (*result));
-
                 return ((*result));
             }
             else if (no->valor == MAIS){

@@ -1,9 +1,9 @@
 /*
  * Autor: Rubens Zandomenighi Laszlo- GRR20206147
  * Data: 29/10/2021
- * Compila a partir do C, utilizando o comando make teste, para limpar basta digitar make clean 
- * Programa que le as expressoes no arquivo de expressoes de teste e analisa as expressoes, retornando seu resultado
- * e se estao corretos. 
+ * Compila a partir do C, utilizando o comando make teste, para excluir arquivos executaveis e temporarios basta digitar make purge 
+ * Programa que le as expressoes no arquivo de expressoes.txt e analisa as expressoes, retornando se o resultado
+ * esperado esta equivalente ao resultado retornado. 
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,7 +17,6 @@ void testaAnalisadorSenhas(){
     tNo *n;
     int i;
     int resultado;
-    
     while(proximaExpressao()){
         i = 0;
         resultado = 0; 
@@ -30,12 +29,12 @@ void testaAnalisadorSenhas(){
             printf("Resultado: %d\n", resultado);
         }
         else 
-            printf("Erro ao calcular\n");
+            printf("Erro ao calcular, resultado obtido: %d\n", resultado);
     }
 }
 int main(void)
 {
     carregarExpressoes("expressoes.txt");
     testaAnalisadorSenhas();
-    return 1;
+    return 0;
 };
