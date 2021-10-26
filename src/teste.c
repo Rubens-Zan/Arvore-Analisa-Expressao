@@ -34,7 +34,7 @@ void testaAnalisadorSenhas(){
 }
 int main(void)
 {
-    carregarExpressoes("expressoes.txt");
+    carregarExpressoes("../expressoes.txt");
     testaAnalisadorSenhas();
     return 0;
 };
