@@ -3,12 +3,14 @@ Projeto 01- Disciplina CI1057
 Autor: Rubens Zandomenighi Laszlo - GRR20206147
 
 ## Compilação 
-Para efetuar a compilação, basta digitar make all, para excluir todos os arquivos temporários digite make clean, 
-e para excluir temporários e o executável digite make purge.
+Compila a partir do C, utilizando comandos make.  
+Para efetuar a compilação, basta digitar make all,  
+Para excluir todos os arquivos temporários digite make clean,   
+e para excluir temporários e o executável digite make purge.  
 Ao compilar criará um arquivo executável com o nome teste.
 
 ## Execução
-O programa le as expressõoes de entrada do arquivo expressoes.txt, e cria um vetor com as expressões e os resultados esperados. 
+O programa le as expressõoes de entrada do arquivo expressoes.txt, armazenando as expressões e os resultados esperados. 
 Para cada expressão é criada uma árvore binária sendo que os números serão nós folhas, e as operações (*, /, -, +) serão os nós internos.
 Posteriormente, sendo analisadas e retornando o resultado calculado. 
 
