@@ -23,8 +23,8 @@ Para executar o programa basta digitar ./teste
 ## Saída
 Para uma melhor visualização da execução do programa, optei por a cada operação efetuada pelo analisador, mostrar ao lado o resultado da operação. 
 Por exemplo, na expressão acima:
-_(*(5)(+(4)(3)))=35_
-4 + 3 = 7 
-5 * 7 = 35 
-Resultado: 35
+_(*(5)(+(4)(3)))=35_  
+4 + 3 = 7  
+5 * 7 = 35  
+Resultado: 35  
 
